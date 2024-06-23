@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="../static/style/result.css">
+
+    <title>Weather Result</title>
+</head>
+<body>
+    <h1>Weather in {{ weather.city }}, {{ weather.country }}</h1>
+    <div class="weather-info">
+        <p>Current Temperature: {{ weather.temperature }}°C</p>
+        <p>Condition: {{ weather.condition }}</p>
+        <img src="{{ weather.icon }}" alt="Weather icon">
+    </div>
+    <div class="forecast-info">
+        <h2>2-Day Forecast</h2>
+        {% for day in weather.forecast %}
+            <div>
+                <p>Date: {{ day.date }}</p>
+                <p>Max Temperature: {{ day.day.maxtemp_c }}°C</p>
+                <p>Min Temperature: {{ day.day.mintemp_c }}°C</p>
+                <p>Condition: {{ day.day.condition.text }}</p>
+                <img src="{{ day.day.condition.icon }}" alt="Weather icon">
+            </div>
+        {% endfor %}
+    </div>
+    <a href="/">Back</a>
+</body>
+</html>
