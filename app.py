@@ -1,22 +1,22 @@
-#!/usr/bin/python3
-"""
-starts a Flask web application
-"""
-
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='web_static/templates',
+            static_folder='web_static/static')
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
-@app.route('/weather', methods=['POST'])
-def get_weather():
-    city = request.form['city']
-    api_key = 'YOUR_API_KEY'
-    url = f'http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={city}&days=2&aqi=no&alerts=no'
+@app.route('/submit_city', methods=['POST'])
+def submit_city():
+    city = request.form.get('city')
+    return redirect(url_for('get_weather', city=city))
+
+@app.route('/weather/<city>')
+def get_weather(city):
+    api_key = '442d038d4f21480a8f5155320240606'
+    url = f"http://api.weatherapi.com/v1/forecast.json?key={api_key}&q={city}&days=2&aqi=no&alerts=no"
     response = requests.get(url)
     weather_data = response.json()
     
@@ -31,7 +31,7 @@ def get_weather():
         }
         return render_template('result.html', weather=weather)
     else:
-        return render_template('index.html', error='City not found')
+        return render_template('home.html', error='City not found')
 
 if __name__ == '__main__':
     app.run(debug=True)
