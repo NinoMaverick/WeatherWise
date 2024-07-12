@@ -92,7 +92,7 @@ input[type="text"] {
     margin: 1rem 0;
 }
 .error {
-    color: red;
+    color: rgb(0, 255, 132);
     font-weight: bold;
 }
 
