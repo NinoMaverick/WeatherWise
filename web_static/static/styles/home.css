@@ -1,35 +1,163 @@
+ /* Basic reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
 body {
-    
-    background-image: url('../images/weather.jpg');
-    background-size: 100%;
-    height: 100vh;
-    width: 100vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
     font-family: Arial, sans-serif;
-    margin: 150px 0px;
-    text-align: center;
 }
-form {
-    margin-bottom: 20px;
-}
-input[type="text"] {
-    border-radius: 10px;
-    padding: 20px 250px 20px 70px;
-    margin: 0px;
-    font-size: 16px;
-}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
 }
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+header {
+    color: rgb(49, 49, 89);
+    padding: 0;
+    background: white; /* Corrected background color */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .branding {
+    display: flex;
+    align-items: center;
+}
+
+header .branding .logo {
+    width: 70px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    margin-right: 0px; /* Space between logo and text */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+input[type="text"] {
+    border-radius: 10px;
+    padding: 10px 20px 10px 100px;
+    margin: 0px;
+    font-size: 16px;
+}
+
+.form-section {
+    position: relative;
+    background: url('../images/nowweather.jpg') no-repeat center center/cover;
+    background-position: center bottom;
+    color: #fff;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    width: 100%;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
 .error {
     color: red;
     font-weight: bold;
 }
-* {
-    border: none;
+
+.cta {
+    background: #ff6b6b;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.cta:hover {
+    background: #ff4757;
+}
+
+#features, #about, #contact {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    flex: 1; /* Adjusted flex property */
+    padding: 1rem;
+    min-width: 250px;
+}
+
+.section-divider {
+    width: 50%; /* Adjust the width as needed */
+    margin: 0 auto 20px auto; /* Centers the line */
+    border: 0;
+    height: 1px; /* Adjust the height as needed */
+    background-color: #333; /* Adjust the color as needed */
+}
+
+#about h3 {
+    margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin-left: 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
 }
